@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #ifndef MSGPACK_EASY
 #define MSGPACK_EASY
 #include <string>
