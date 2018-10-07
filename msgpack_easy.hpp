@@ -30,6 +30,12 @@ namespace msgpack
 		{
 			return msgpack::unpack(data, len).get().as<T>();
 		}
+		
+		template<typename T>
+		T unpack(const uint8_t* data, size_t len)
+		{
+			return msgpack::unpack(data, len).get().as<T>();
+		}
 	}
 }
 #endif // !MSGPACK_EASY

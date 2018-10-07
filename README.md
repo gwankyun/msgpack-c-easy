@@ -8,4 +8,10 @@ std::string pack(const T& t)
 
 template<typename T>
 T unpack(std::string str)
+
+template<typename T>
+T unpack(const char* data, size_t len)
+
+template<typename T>
+T unpack(const uint8_t* data, size_t len)
 ```
