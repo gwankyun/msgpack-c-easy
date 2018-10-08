@@ -34,7 +34,7 @@ namespace msgpack
 		template<typename T>
 		T unpack(const uint8_t* data, size_t len)
 		{
-			return msgpack::unpack(data, len).get().as<T>();
+			return msgpack::unpack(reinterpret_cast<const char*>(data), len).get().as<T>();
 		}
 	}
 }
