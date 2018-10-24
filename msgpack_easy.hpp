@@ -3,6 +3,7 @@
 #define MSGPACK_EASY
 #include <string>
 #include <sstream>
+#include <utility>
 #include <msgpack.hpp>
 
 namespace msgpack
@@ -22,19 +23,19 @@ namespace msgpack
 		template<typename T>
 		T unpack(std::string str)
 		{
-			return msgpack::unpack(str.data(), str.size()).get().as<T>();
+			return std::move(msgpack::unpack(str.data(), str.size()).get().as<T>());
 		}
 
 		template<typename T>
 		T unpack(const char* data, size_t len)
 		{
-			return msgpack::unpack(data, len).get().as<T>();
+			return std::move(msgpack::unpack(data, len).get().as<T>());
 		}
 		
 		template<typename T>
 		T unpack(const uint8_t* data, size_t len)
 		{
-			return msgpack::unpack(reinterpret_cast<const char*>(data), len).get().as<T>();
+			return std::move(msgpack::unpack(reinterpret_cast<const char*>(data), len).get().as<T>());
 		}
 	}
 }
