@@ -27,13 +27,13 @@ namespace msgpack
 		}
 
 		template<typename T>
-		T unpack(const char* data, size_t len)
+		T unpack(const char* data, std::size_t len)
 		{
 			return std::move(msgpack::unpack(data, len).get().as<T>());
 		}
 		
 		template<typename T>
-		T unpack(const uint8_t* data, size_t len)
+		T unpack(const uint8_t* data, std::size_t len)
 		{
 			return std::move(msgpack::unpack(reinterpret_cast<const char*>(data), len).get().as<T>());
 		}
