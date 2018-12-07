@@ -4,14 +4,14 @@
 在msgpack::easy命名空間內引入：
 ```
 template<typename T>
-std::string pack(const T& t)
+std::string pack(const T& t);
 
 template<typename T>
-T unpack(std::string str)
+T unpack(std::string str);
 
 template<typename T>
-T unpack(const char* data, size_t len)
+T unpack(const char* data, std::size_t len);
 
 template<typename T>
-T unpack(const uint8_t* data, size_t len)
+T unpack(const uint8_t* data, std::size_t len);
 ```
