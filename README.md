@@ -9,16 +9,16 @@
 
 int main()
 {
-	std::vector<int> vec{ 1,2,3 };
+    std::vector<int> vec{ 1,2,3 };
 
-	auto pack = msgpack::easy::pack(vec);
+    auto pack = msgpack::easy::pack(vec);
 
-	auto v = msgpack::easy::unpack<std::vector<int>>(pack);
+    auto v = msgpack::easy::unpack<std::vector<int>>(pack);
 	
-	for (auto&& i : v)
-	{
-		std::cout << i << std::endl;
-	}
+    for (auto&& i : v)
+    {
+        std::cout << i << std::endl;
+    }
 
 	return 0;
 }
