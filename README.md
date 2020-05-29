@@ -1,17 +1,25 @@
 # msgpack-c-easy
 
-依賴[msgpack/msgpack-c](https://github.com/msgpack/msgpack-c)庫。
-在msgpack::easy命名空間內引入：
-```
-template<typename T>
-std::string pack(const T& t);
+依賴[msgpack/msgpack-c](https://github.com/msgpack/msgpack-c)庫，不要求C++編譯器，C++98及C++11用法皆可。
+```C++
+#include <iostream>
+#include <vector>
+#include <string>
+#include <msgpack_easy.hpp>
 
-template<typename T>
-T unpack(std::string str);
+int main()
+{
+	std::vector<int> vec{ 1,2,3 };
 
-template<typename T>
-T unpack(const char* data, std::size_t len);
+	auto pack = msgpack::easy::pack(vec);
 
-template<typename T>
-T unpack(const uint8_t* data, std::size_t len);
+	auto v = msgpack::easy::unpack<std::vector<int>>(pack);
+	
+	for (auto&& i : v)
+	{
+		std::cout << i << std::endl;
+	}
+
+	return 0;
+}
 ```

@@ -39,3 +39,6 @@
 main.cpp
 pch.h
 pch.cpp
+
+build
+bin
