@@ -16,6 +16,10 @@ namespace msgpack
 
     namespace easy
     {
+#ifndef UINT8_MAX
+        typedef unsigned char uint8_t;
+#endif // !UINT8_MAX
+
         /**
          * @brief 序列化
          * @tparam T 需序列化的類型
