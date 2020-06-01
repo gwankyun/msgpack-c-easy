@@ -49,7 +49,8 @@ namespace msgpack
             stringstream buffer;
             msgpack::pack(buffer, v);
             buffer.seekg(0);
-            str.swap(string(buffer.str()));
+            string result(buffer.str());
+            str.swap(result);
         }
 
         /**
