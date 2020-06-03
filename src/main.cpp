@@ -3,6 +3,22 @@
 #include <string>
 #include <msgpack_easy.hpp>
 
+enum Sex
+{
+    Female = 1,
+    Male
+};
+
+MSGPACK_ADD_ENUM(Sex);
+
+struct Person
+{
+    std::string name;
+    int age;
+    Sex sex;
+    MSGPACK_DEFINE(name, age, sex);
+};
+
 int main()
 {
 #ifdef __cpp_rvalue_references
@@ -37,5 +53,20 @@ int main()
         std::cout << v[i] << std::endl;
     }
 #endif // __cpp_rvalue_references
+
+    Person src;
+    src.name = "Tom";
+    src.age = 20;
+    src.sex = Male;
+
+    std::string personPack;
+    msgpack::easy::pack(src, personPack);
+
+    Person dst;
+    msgpack::easy::unpack(personPack, dst);
+    std::cout << dst.name << std::endl;
+    std::cout << dst.age << std::endl;
+    std::cout << dst.sex << std::endl;
+
     return 0;
 }
